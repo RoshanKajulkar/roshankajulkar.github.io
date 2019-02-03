@@ -74,9 +74,13 @@
                 this.root = newNode;
                 this.create(newNode)
               }
-                  
               else
-                  this.insertNode(this.root, newNode); 
+              {
+              	    this.insertNode(this.root, newNode);
+              		this.drawline(this.xprev,this.yprev,this.x,this.y)
+                   this.restore(); 
+              }
+                  
           } 
           
           insertNode(node, newNode) 
@@ -111,7 +115,7 @@
                  if(node.right === null) 
                  { 
                    this.xprev = this.x
-                  this.yprev = this.y
+                   this.yprev = this.y
                    this.x = this.x + 80
                    this.y = this.y  + 70
                    node.right = newNode;
@@ -128,16 +132,12 @@
                  }
               } 
 
-              this.drawline(this.xprev,this.yprev,this.x,this.y)
-
-
-              this.restore();
-
-              
-          } 
-
+         } 
+          
+         
 
           drawline(x1,y1,x2,y2){
+          	
             colorMode(RGB, 255, 255, 255, 1);
             strokeWeight(1)
             line(x1,y1,x2,y2);
