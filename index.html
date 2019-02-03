@@ -1,0 +1,165 @@
+<html>
+<head>
+  <script src="p5.js"> </script>
+</head>
+<body>
+	 
+  <script>
+      
+      let x , y  
+
+
+      function setup(){
+        createCanvas(1250,600)
+        background(255)
+      }
+
+
+      class Node 
+      { 
+          constructor(data) 
+          { 
+               this.data = data; 
+               this.left = null; 
+               this.right = null; 
+          } 
+      } 
+
+      class BinarySearchTree 
+      { 
+          constructor() 
+          { 
+              // root of a binary seach tree 
+              this.root =null;
+              this.x = 600
+              this.y=50
+              this.xprev = 0
+              this.yprev = 0
+              
+          }
+
+          create(newNode){
+             fill(255)
+             ellipse(this.x,this.y,40)
+             fill(100)
+             text(newNode.data,this.x,this.y)
+             
+          }
+          
+          restore(){
+            this.x = 600
+            this.y = 50
+          }
+
+          display(){
+            this.inorder(this.root)
+          }
+
+
+          inorder(node) 
+          { 
+             if(node !== null) 
+            { 
+                this.inorder(node.left); 
+                console.log(node.data); 
+                this.inorder(node.right); 
+            } 
+          } 
+
+
+          insert(data) 
+          { 
+              var newNode = new Node(data); 
+              if(this.root === null) {
+                this.root = newNode;
+                this.create(newNode)
+              }
+                  
+              else
+                  this.insertNode(this.root, newNode); 
+          } 
+          
+          insertNode(node, newNode) 
+          { 
+    
+              
+              if(node.data > newNode.data) 
+              { 
+                print(newNode.data)
+                print(node.data)
+                if(node.left === null) 
+                {
+                  this.xprev = this.x
+                  this.yprev = this.y
+                  this.x = this.x - 80
+                  this.y = this.y + 70
+                  node.left = newNode; 
+                  this.create(newNode);
+                  
+                }
+                else
+                {  
+                  this.xprev = this.x
+                  this.yprev = this.y
+                  this.x = this.x - 80
+                  this.y = this.y + 70
+                  this.insertNode(node.left, newNode);  
+                }
+              } 
+              else
+              { 
+                 if(node.right === null) 
+                 { 
+                   this.xprev = this.x
+                  this.yprev = this.y
+                   this.x = this.x + 80
+                   this.y = this.y  + 70
+                   node.right = newNode;
+                   this.create(newNode); 
+                   
+                 }
+                 else
+                 {
+                   this.xprev = this.x
+                   this.yprev = this.y
+                    this.x = this.x + 80
+                    this.y = this.y  + 70
+                    this.insertNode(node.right,newNode); 
+                 }
+              } 
+
+              this.drawline(this.xprev,this.yprev,this.x,this.y)
+
+
+              this.restore();
+
+              
+          } 
+
+
+          drawline(x1,y1,x2,y2){
+            colorMode(RGB, 255, 255, 255, 1);
+            strokeWeight(1)
+            line(x1,y1,x2,y2);
+            strokeWeight(1)
+          }
+      } 
+
+
+      let headnode = new BinarySearchTree()
+
+      function getdata(){
+        
+        headnode.insert(int(document.getElementById("myText").value))
+        document.getElementById("myText").value = ''
+      }
+
+
+  </script>
+    
+
+    enter node :<input type="text" id="myText" >
+    <button onclick="getdata()">submit</button>
+    <button onclick="headnode.display()">display</button><br><br>
+</body>
+</html>
