@@ -16,5 +16,124 @@ body{
     width: 350px;
     height: 90%;
     background-color: black;
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(6,auto-fit);
+    grid-template-areas:
+    "box1 box1 box1 box1"
+    "box2 box3 box4 box5"
+    "box6 box7 box8 box9"
+    "box10 box11 box12 box13"
+    "box14 box15 box16 box17"
+    "box18 box18 box19 box20"
+}
+
+.text{
+    grid-area: box1;
+    color: white;
+    display:flex;
+    justify-content: flex-end;
+    align-items:center;
+}
+
+h2{
+    margin: 0px;
+    padding-right: 30px;
+    font-family: sans-serif;
+    font-size: 4rem;
+    font-weight: lighter;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn17{
+    grid-area: box18;
+}
+
+.clbtn{ 
+    height: 75%;
+    width: 75%;
+    border-radius: 50%;
+    position: relative;
+}
+
+.elbtn{ 
+    height: 75%;
+    width: 85%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius:40px;
+    position: relative;
+}
+
+.gray{
+    background-color: rgb(170, 156, 156);
+}
+
+.graydark{
+    background-color: rgb(90, 86, 86);
+}
+
+.org{
+    background-color: rgb(241, 155, 25);
+}
+
+.upnum{
+    position:absolute;
+    top: 20%;
+    left: 18%;
+    font-size: 28px;
+}
+
+.upnum1{
+    position:absolute;
+    top: 20%;
+    left: 22%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.upnum2{
+    position:absolute;
+    top: 20%;
+    left: 30%;
+    font-weight: normal;
+    font-size: 28px;
+}
+
+div , span{
+    cursor: pointer;
+}
+
+.sign{
+    position: absolute;
+    top: 20%;
+    left: 36%;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.num{
+    position: absolute;
+    top: 20%;
+    left: 36%;
+    font-size: 35px;
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+
+.zero{
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    font-size: 35px;
+    font-weight: lighter;
+    font-family: sans-serif;
 }
