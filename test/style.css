@@ -1,0 +1,16 @@
+body{
+    margin: 80px;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    transition : 1000ms;
+
+}
+
+.box:hover{
+    background-color: rgb(247, 182, 63);
+    transform : rotate(45deg);
+}
